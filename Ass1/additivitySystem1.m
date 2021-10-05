@@ -22,6 +22,6 @@ subplot(2,3,5);
 output2 = stem(n,b),xlabel('n'),ylabel('x[n]'),title('Original Output 2')
 subplot(2,3,6);
 output3 = stem(n,c),xlabel('n'),ylabel('x[n]'),title('Added Output')
-sgtitle('System 1 - Additivity Test') 
+sgtitle('System 1 - Additivity Test');
 
 % It was determined that the additivity property does hold for System 1.

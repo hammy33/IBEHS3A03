@@ -16,6 +16,6 @@ subplot(2,2,3);
 output1 = stem(n,a),xlabel('n'),ylabel('y[n]'),title('Original Output');
 subplot(2,2,4);
 output2 = stem(n,b),xlabel('n'),ylabel('y[n]'),title('New Output');
-sgtitle('System 1 - Time Invariance Test') 
+sgtitle('System 1 - Time Invariance Test');
 
 % It was determined that system 1 is time invariant.
