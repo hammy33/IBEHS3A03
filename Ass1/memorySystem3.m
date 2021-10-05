@@ -9,11 +9,11 @@ original = system3(n, a);
 shifted = system3(n, b);
  
 subplot(2,2,1);
-originalinput = stem(n, a), xlabel('n'), ylabel('x[n]'),title('Original Input');
+originalinput = stem(n, a), xlabel('n'), ylabel('x[n]'),title('x_1[n] = \delta[x]');
 subplot(2,2,2);
-shiftedinput = stem(n, b), xlabel('n'), ylabel('x[n]'),title('Shifted Input');
+shiftedinput = stem(n, b), xlabel('n'), ylabel('x[n]'),title('x_2[n] = \delta[x] + \delta[n+1]');
 subplot(2,2,3);
-originaloutput = stem(n, original),xlabel('n'),ylabel('y[n]'),title('Original Output');
+originaloutput = stem(n, original),xlabel('n'),ylabel('y[n]');
 subplot(2,2,4);
-shiftedoutput = stem(n, shifted),xlabel('n'),ylabel('y[n]'),title('Shifted Output');
+shiftedoutput = stem(n, shifted),xlabel('n'),ylabel('y[n]');
 sgtitle('System 3 - Memory Test');

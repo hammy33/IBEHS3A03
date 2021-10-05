@@ -11,17 +11,17 @@ b = system3(n, y);
 c = system3(n, z);
 
 subplot(2,3,1);
-input1 = stem(n,x),xlabel('n'),ylabel('x[n]'),title('Original Input 1')
+input1 = stem(n,x),xlabel('n'),ylabel('x[n]'),title('x_1[n] = r[n]')
 subplot(2,3,2);
-input2 = stem(n,y),xlabel('n'),ylabel('x[n]'),title('Original Input 2')
+input2 = stem(n,y),xlabel('n'),ylabel('x[n]'),title('x_2[n] = r[n+4]')
 subplot(2,3,3);
-input3 = stem(n,z),xlabel('n'),ylabel('x[n]'),title('Added Input')
+input3 = stem(n,z),xlabel('n'),ylabel('x[n]'),title('x[n] = x_1[n] + x_2[n]')
 subplot(2,3,4);
-output1 = stem(n,a),xlabel('n'),ylabel('x[n]'),title('Original Output 1')
+output1 = stem(n,a),xlabel('n'),ylabel('y[n]')
 subplot(2,3,5);
-output2 = stem(n,b),xlabel('n'),ylabel('x[n]'),title('Original Output 2')
+output2 = stem(n,b),xlabel('n'),ylabel('y[n]')
 subplot(2,3,6);
-output3 = stem(n,c),xlabel('n'),ylabel('x[n]'),title('Added Output')
+output3 = stem(n,c),xlabel('n'),ylabel('y[n]')
 sgtitle('System 3 - Additivity Test');
 
 % It was determined that the additivity property does hold for System 3.

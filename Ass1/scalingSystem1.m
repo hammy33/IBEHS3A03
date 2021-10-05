@@ -10,7 +10,7 @@ b = system1(n, y);
 subplot(2,2,1);
 input1 = stem(n,x),xlabel('n'),ylabel('x[n]'),title('x[n] = u[n]');
 subplot(2,2,2);
-input2 = stem(n,y),xlabel('n'),ylabel('x[n]'),title('x[n] = -20*u[n]');
+input2 = stem(n,y),xlabel('n'),ylabel('x[n]'),title('x[n] = -10*u[n]');
 subplot(2,2,3);
 output1 = stem(n,a),xlabel('n'),ylabel('y[n]');
 subplot(2,2,4);
