@@ -7,7 +7,7 @@ x = [0 0 0 0 0 0 1 2 3 4 5];
 system = system1(n, x);
  
 subplot(2,1,1);
-input = stem(n, x), xlabel('n'), ylabel('x[n]'),title('Input');
+input = stem(n, x), xlabel('n'), ylabel('x[n]'),title('x[n] = r[n]');
 subplot(2,1,2);
-output = stem(n, system),xlabel('n'),ylabel('y[n]'),title('Output');
+output = stem(n, system),xlabel('n'),ylabel('y[n]');
 sgtitle('System 1 - Causality Test');
