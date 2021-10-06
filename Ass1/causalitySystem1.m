@@ -11,3 +11,5 @@ input = stem(n, x), xlabel('n'), ylabel('x[n]'),title('x[n] = r[n]');
 subplot(2,1,2);
 output = stem(n, system),xlabel('n'),ylabel('y[n]');
 sgtitle('System 1 - Causality Test');
+
+% System 1 is causal.

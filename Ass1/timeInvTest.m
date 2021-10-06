@@ -1,3 +1,6 @@
+% Matlab script to test the time invariance property for Systems 1, 2 & 3.
+% Running this script should output a subplot that is further analyzed in the report section of the assignment.
+
 n = -5:5;
 x1 = [0 0 0 0 0 1 0 0 0 0 0];
 x2 = [0 0 0 0 1 0 0 0 0 0 0];
@@ -32,6 +35,8 @@ stem(n, sys1_x3), ylabel('y[n]');
 xlabel(t1, 'n');
 sgtitle('System 1 - Time Invariance Test');
 
+% System 1 is time invariant.
+
 figure('Name', 'System 2 Time Invariance Tests', 'NumberTitle', 'Off');
 t2 = tiledlayout(2, 3);
 nexttile
@@ -49,6 +54,8 @@ stem(n, sys2_x3), ylabel('y[n]');
 xlabel(t2, 'n');
 sgtitle('System 2 - Time Invariance Test');
 
+% System 2 is time invariant.
+
 figure('Name', 'System 3 Time Invariance Tests', 'NumberTitle', 'Off');
 t3 = tiledlayout(2, 3);
 nexttile
@@ -65,3 +72,5 @@ nexttile
 stem(n, sys3_x3), ylabel('y[n]');
 xlabel(t3, 'n');
 sgtitle('System 3 - Time Invariance Test');
+
+%System 3 is time varying

@@ -17,3 +17,5 @@ originaloutput = stem(n, original),xlabel('n'),ylabel('y[n]');
 subplot(2,2,4);
 shiftedoutput = stem(n, shifted),xlabel('n'),ylabel('y[n]');
 sgtitle('System 1 - Memory Test');
+
+% System 1 is memoryless.
