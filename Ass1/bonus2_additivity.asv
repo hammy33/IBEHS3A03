@@ -16,9 +16,10 @@ function o = bonus2_additivity(f)
             f_adau = a(i)*f_d + a(j)*f_u;
             f_ij = f(n, a(i)*d + a(j)*u);
             for k = 1:numel(n)
-                if round(f_adau(k), 4) ~= round(f_ij(k), 4)
-                    o = "Non-additive";
-                end
+                if round(f_adau(k), 
+            end
+            if ~isequal(f_adau, f_ij)
+                o = "Non-additive";
             end
         end
     end
