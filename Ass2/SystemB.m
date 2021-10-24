@@ -78,9 +78,9 @@ respirationInput = cell2mat(struct2cell(respirationData));
 respirationOutput = ltisystemB(n4, respirationInput);
 
 impulse = [0 0 0 0 0 1 0 0 0 0 0];
-ECGconvolution = conv(ECGoutput, impulse);
+ECGconvolution = conv(ECGinput, impulseOutput);
 ECGconvolution = ECGconvolution([6:2005]);
-respirationConvolution = conv(respirationOutput, impulse);
+respirationConvolution = conv(respirationInput, impulseOutput);
 respirationConvolution = respirationConvolution([6:660006]);
 
 figure('Name', 'Part VII - ECG', 'NumberTitle', 'Off')
