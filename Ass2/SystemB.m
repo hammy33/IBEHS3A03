@@ -83,16 +83,26 @@ ECGconvolution = ECGconvolution([6:2005]);
 respirationConvolution = conv(respirationOutput, impulse);
 respirationConvolution = respirationConvolution([6:660006]);
 
-figure('Name', 'Part VII', 'NumberTitle', 'Off')
-subplot(2,2,1);
+figure('Name', 'Part VII - ECG', 'NumberTitle', 'Off')
+subplot(2,1,1);
 ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('y[n]'), title('System B Output for ECG Signal');
-subplot(2,2,2);
-respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('y[n]'), title('System B Output for Respiration Signal');
-subplot(2,2,3);
+subplot(2,1,2);
 ECGconvolutionPlot = plot(n3, ECGconvolution),xlabel('n'),ylabel('y[n]'), title('Convolution of ECG Signal and h_B[n]');
-subplot(2,2,4);
+
+figure('Name', 'Part VII - Respiration', 'NumberTitle', 'Off')
+subplot(2,1,1);
+respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('y[n]'), title('System B Output for Respiration Signal');
+subplot(2,1,2);
 respirationConvolutionPlot = plot(n4, respirationConvolution),xlabel('n'),ylabel('y[n]'), title('Convolution of Respiration Signal and h_B[n]');
 
+%%
+%FIR/IIR Check
 
+n5 = -5:30;
+impulse5 = zeros(1,36);
+impulse5(6) = 1;
 
+impulseOutput5 = ltisystemB(n5, impulse5);
 
+figure('Name', 'FIR/IIR Check', 'NumberTitle', 'Off')
+impulsePlot5 = stem(n5, impulseOutput5), xlabel('n'), ylabel('y[n]'),title('System B Output for Unit Impulse');

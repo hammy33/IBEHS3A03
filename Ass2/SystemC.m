@@ -8,10 +8,10 @@ step = [0 0 0 0 0 1 1 1 1 1 1];
 impulseOutput = ltisystemC(n, impulse);
 stepOutput = ltisystemC(n, step);
  
-%subplot(2,1,1);
-%impulsePlot = stem(n, impulseOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Impulse');
-%subplot(2,1,2);
-%stepPlot = stem(n, stepOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Step');
+subplot(2,1,1);
+impulsePlot = stem(n, impulseOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Impulse');
+subplot(2,1,2);
+stepPlot = stem(n, stepOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Step');
 
 %%
 %Part III
@@ -65,25 +65,25 @@ ECGdata = load('ECG_assignment2.mat');
 ECGinput = cell2mat(struct2cell(ECGdata));
 ECGoutput = ltisystemC(n3, ECGinput)
 
-n4 = 1:660001;
-respirationData = load('respiration_assignment2.mat');
-respirationInput = cell2mat(struct2cell(respirationData));
-respirationOutput = ltisystemC(n4, respirationInput);
-
-impulse = [0 0 0 0 0 1 0 0 0 0 0];
-ECGconvolution = conv(ECGoutput, impulse);
-ECGconvolution = ECGconvolution([6:2005]);
-respirationConvolution = conv(respirationOutput, impulse);
-respirationConvolution = respirationConvolution([6:660006]);
-
-subplot(2,2,1);
-ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('x[n]'),title('System C Output for ECG Signal');
-subplot(2,2,2);
-respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Respiration Signal');
-subplot(2,2,3);
-ECGconvolutionPlot = plot(n3, ECGconvolution),xlabel('n'),ylabel('y[n]');
-subplot(2,2,4);
-respirationConvolutionPlot = plot(n4, respirationConvolution),xlabel('n'),ylabel('y[n]');
+% n4 = 1:660001;
+% respirationData = load('respiration_assignment2.mat');
+% respirationInput = cell2mat(struct2cell(respirationData));
+% respirationOutput = ltisystemC(n4, respirationInput);
+% 
+% impulse = [0 0 0 0 0 1 0 0 0 0 0];
+% ECGconvolution = conv(ECGoutput, impulse);
+% ECGconvolution = ECGconvolution([6:2005]);
+% respirationConvolution = conv(respirationOutput, impulse);
+% respirationConvolution = respirationConvolution([6:660006]);
+% 
+% subplot(2,2,1);
+% ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('x[n]'),title('System C Output for ECG Signal');
+% subplot(2,2,2);
+% respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Respiration Signal');
+% subplot(2,2,3);
+% ECGconvolutionPlot = plot(n3, ECGconvolution),xlabel('n'),ylabel('y[n]');
+% subplot(2,2,4);
+% respirationConvolutionPlot = plot(n4, respirationConvolution),xlabel('n'),ylabel('y[n]');
 
 
 
