@@ -1,17 +1,17 @@
-function partSeven = bonusVII(lti, d)
+function partSeven = bonusVII(lti, d) % lti is the system, d is the .m file
   data = load(d);
   input = cell2mat(struct2cell(data));
   n = 1:length(input);
   output = lti(n, input);
   
-  impulse = [0 0 0 0 0 1 0 0 0 0 0];
-  convolution = conv(input, lti(-5:5, impulse));
+  impulseResponse = lti(-5:5, [0 0 0 0 0 1 0 0 0 0 0]); % h[n]
+  convolution = conv(input, impulseResponse);
   convolution = convolution([6:length(n)+5]);
   
-  partSeven = "Output of signal and convolution of input signal and h_{lti}[n] ARE Equal";
+  partSeven = "Output of signal and convolution of input signal and h[n] ARE Equal";
   for i = 1:length(n)
     if round(output(i), 4) ~= round(convolution(i), 4)
-      partSeven = "Output of signal and convolution of input signal and h_{lti}[n] ARE NOT Equal";
+      partSeven = "Output of signal and convolution of input signal and h[n] ARE NOT Equal";
     end
   end
 end
