@@ -93,6 +93,18 @@ respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('x[n]')
 subplot(2,1,2);
 respirationConvolutionPlot = plot(n4, respirationConvolution),xlabel('n'),ylabel('y[n]');
 
+%%
+%FIR/IIR Check
+
+n5 = -5:30;
+impulse5 = zeros(1,36);
+impulse5(6) = 1;
+
+impulseOutput5 = ltisystemC(n5, impulse5);
+
+figure('Name', 'FIR/IIR Check', 'NumberTitle', 'Off')
+impulsePlot5 = stem(n5, impulseOutput5), xlabel('n'), ylabel('y[n]'),title('System C Output for Unit Impulse');
+
 
 
 
