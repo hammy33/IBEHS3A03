@@ -10,7 +10,7 @@ function partSeven = bonusVII(lti, d) % lti is the system, d is the .m file
   
   partSeven = "Output of signal and convolution of input signal and h[n] ARE Equal";
   for i = 1:length(n)
-    if round(output(i), 4) ~= round(convolution(i), 4)
+    if round(output(i), 3) ~= round(convolution(i), 3)
       partSeven = "Output of signal and convolution of input signal and h[n] ARE NOT Equal";
     end
   end
