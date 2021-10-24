@@ -1,0 +1,5 @@
+function partSeven = bonusVII(f, d)
+  impulse = [0 0 0 0 0 1 0 0 0 0 0];
+  data = load(d);
+  input = cell2mat(struct2cell
+end
