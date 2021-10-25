@@ -70,7 +70,7 @@ respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('y[n]')
 n3 = 1:2000;
 ECGdata = load('ECG_assignment2.mat');
 ECGinput = cell2mat(struct2cell(ECGdata));
-ECGoutput = ltisystemB(n3, ECGinput)
+ECGoutput = ltisystemB(n3, ECGinput);
 
 n4 = 1:660001;
 respirationData = load('respiration_assignment2.mat');

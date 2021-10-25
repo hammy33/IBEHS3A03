@@ -10,9 +10,9 @@ stepOutput = ltisystemC(n, step);
 
 figure('Name', 'Part I and II', 'NumberTitle', 'Off')
 subplot(2,1,1);
-impulsePlot = stem(n, impulseOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Impulse');
+impulsePlot = stem(n, impulseOutput), xlabel('n'), ylabel('y[n]'),title('System C Output for Unit Impulse');
 subplot(2,1,2);
-stepPlot = stem(n, stepOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Step');
+stepPlot = stem(n, stepOutput), xlabel('n'), ylabel('y[n]'),title('System C Output for Unit Step');
 
 %%
 %Part III
@@ -20,9 +20,9 @@ impulseCumSum = cumsum(impulseOutput);
 
 figure('Name', 'Part III', 'NumberTitle', 'Off')
 subplot(2,1,1);
-stepPlot = stem(n, stepOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Step');
+stepPlot = stem(n, stepOutput), xlabel('n'), ylabel('y[n]'),title('System C Output for Unit Step');
 subplot(2,1,2);
-impulsePlot = stem(n, impulseCumSum), xlabel('n'), ylabel('x[n]'),title('System C Output for Cumulative Sum of Unit Impulse');
+impulsePlot = stem(n, impulseCumSum), xlabel('n'), ylabel('y[n]'),title('System C Output for Cumulative Sum of Unit Impulse');
 
 %%
 %Part IV
@@ -31,9 +31,9 @@ stepDiff = [0 stepDiff]; %% Since first differences are calculated, the output w
 
 figure('Name', 'Part IV', 'NumberTitle', 'Off')
 subplot(2,1,1);
-impulsePlot = stem(n, impulseOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Unit Impulse');
+impulsePlot = stem(n, impulseOutput), xlabel('n'), ylabel('y[n]'),title('System C Output for Unit Impulse');
 subplot(2,1,2);
-stepPlot = stem(n, stepDiff), xlabel('n'), ylabel('x[n]'),title('System C Output for First Difference of Unit Step');
+stepPlot = stem(n, stepDiff), xlabel('n'), ylabel('y[n]'),title('System C Output for First Difference of Unit Step');
 
 %%
 %Part V
@@ -46,7 +46,7 @@ figure('Name', 'Part V', 'NumberTitle', 'Off')
 subplot(2,1,1);
 ECGinputPlot = plot(n3, ECGinput), xlabel('n'), ylabel('x[n]'),title('ECG Signal Input');
 subplot(2,1,2);
-ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('x[n]'),title('System C Output for ECG Signal');
+ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('y[n]'),title('System C Output for ECG Signal');
 
 
 %%
@@ -60,7 +60,7 @@ figure('Name', 'Part VI', 'NumberTitle', 'Off')
 subplot(2,1,1);
 respirationInputPlot = plot(n4, respirationInput), xlabel('n'), ylabel('x[n]'),title('Respiration Signal Input');
 subplot(2,1,2);
-respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Respiration Signal');
+respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('y[n]'),title('System C Output for Respiration Signal');
 
 
 %%
@@ -83,15 +83,15 @@ respirationConvolution = respirationConvolution([6:660006]);
 
 figure('Name', 'Part VII - ECG', 'NumberTitle', 'Off')
 subplot(2,1,1);
-ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('x[n]'),title('System C Output for ECG Signal');
+ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('y[n]'),title('System C Output for ECG Signal');
 subplot(2,1,2);
-ECGconvolutionPlot = plot(n3, ECGconvolution),xlabel('n'),ylabel('y[n]');
+ECGconvolutionPlot = plot(n3, ECGconvolution),xlabel('n'),ylabel('y[n]'), title('Convolution of ECG Signal and h_C[n]');;
 
 figure('Name', 'Part VII - Respiration', 'NumberTitle', 'Off')
 subplot(2,1,1);
-respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('x[n]'),title('System C Output for Respiration Signal');
+respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('y[n]'),title('System C Output for Respiration Signal');
 subplot(2,1,2);
-respirationConvolutionPlot = plot(n4, respirationConvolution),xlabel('n'),ylabel('y[n]');
+respirationConvolutionPlot = plot(n4, respirationConvolution),xlabel('n'),ylabel('y[n]'), title('Convolution of Respiration Signal and h_C[n]');
 
 %%
 %FIR/IIR Check
