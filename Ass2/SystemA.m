@@ -77,9 +77,11 @@ respirationOutput = ltisystemA(n4, respirationInput);
  
 impulse = zeros(1,51);
 impulse(26) = 1;
-ECGconvolution = conv(ECGinput, impulse);
+n6 = -25:25;
+impulseOutput1 = ltisystemA(n6, impulse);
+ECGconvolution = conv(ECGinput, impulseOutput1);
 ECGconvolution = ECGconvolution([26:2025]);
-respirationConvolution = conv(respirationInput, impulse);
+respirationConvolution = conv(respirationInput, impulseOutput1);
 respirationConvolution = respirationConvolution([26:660026]);
  
 figure('Name', 'Part VII - ECG', 'NumberTitle', 'Off')
