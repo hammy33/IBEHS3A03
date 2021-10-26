@@ -6,7 +6,7 @@ function partFour = bonusIV(f)
     stepOutput = f(n, step);
     
     stepDiff = diff(stepOutput);
-    stepDiff = [0 stepDiff] %% Since first differences are calculated, the output would have one less value. This is why a 0 was added to the beginning of the array.
+    stepDiff = [0 stepDiff]; %% Since first differences are calculated, the output would have one less value. This is why a 0 was added to the beginning of the array.
     
     partFour = "First Difference of Unit Step and Unit Impulse Output ARE Equal";
     for i = 1:length(n)

@@ -40,7 +40,7 @@ stepPlot = stem(n, stepDiff), xlabel('n'), ylabel('y[n]'),title('System A Output
 n3 = 1:2000;
 ECGdata = load('ECG_assignment2.mat');
 ECGinput = cell2mat(struct2cell(ECGdata));
-ECGoutput = ltisystemC(n3, ECGinput);
+ECGoutput = ltisystemA(n3, ECGinput);
  
 figure('Name', 'Part V', 'NumberTitle', 'Off')
 subplot(2,1,1);
@@ -54,7 +54,7 @@ ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('y[n]'),title('System A
 n4 = 1:660001;
 respirationData = load('respiration_assignment2.mat');
 respirationInput = cell2mat(struct2cell(respirationData));
-respirationOutput = ltisystemC(n4, respirationInput);
+respirationOutput = ltisystemA(n4, respirationInput);
  
 figure('Name', 'Part VI', 'NumberTitle', 'Off')
 subplot(2,1,1);
@@ -68,18 +68,19 @@ respirationOutputPlot = plot(n4, respirationOutput), xlabel('n'), ylabel('y[n]')
 n3 = 1:2000;
 ECGdata = load('ECG_assignment2.mat');
 ECGinput = cell2mat(struct2cell(ECGdata));
-ECGoutput = ltisystemC(n3, ECGinput);
+ECGoutput = ltisystemA(n3, ECGinput);
  
 n4 = 1:660001;
 respirationData = load('respiration_assignment2.mat');
 respirationInput = cell2mat(struct2cell(respirationData));
-respirationOutput = ltisystemC(n4, respirationInput);
+respirationOutput = ltisystemA(n4, respirationInput);
  
-impulse = [0 0 0 0 0 1 0 0 0 0 0];
+impulse = zeros(1,51);
+impulse(26) = 1;
 ECGconvolution = conv(ECGinput, impulse);
-ECGconvolution = ECGconvolution([6:2005]);
+ECGconvolution = ECGconvolution([26:2025]);
 respirationConvolution = conv(respirationInput, impulse);
-respirationConvolution = respirationConvolution([6:660006]);
+respirationConvolution = respirationConvolution([26:660026]);
  
 figure('Name', 'Part VII - ECG', 'NumberTitle', 'Off')
 subplot(2,1,1);

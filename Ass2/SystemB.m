@@ -77,6 +77,8 @@ respirationData = load('respiration_assignment2.mat');
 respirationInput = cell2mat(struct2cell(respirationData));
 respirationOutput = ltisystemB(n4, respirationInput);
 
+impulse = zeros(1,51);
+impulse(26) = 1;
 ECGconvolution = conv(ECGinput, impulseOutput);
 ECGconvolution = ECGconvolution([6:2005]);
 respirationConvolution = conv(respirationInput, impulseOutput);

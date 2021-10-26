@@ -4,9 +4,11 @@ function partSeven = bonusVII(lti, d) % lti is the system, d is the .m file
   n = 1:length(input);
   output = lti(n, input);
   
-  impulseResponse = lti(-5:5, [0 0 0 0 0 1 0 0 0 0 0]); % h[n]
+  n = zeros(1,51);
+  n(26) = 1;
+  impulseResponse = lti(-25:25, n); % h[n]
   convolution = conv(input, impulseResponse);
-  convolution = convolution([6:length(n)+5]);
+  convolution = convolution([26:length(n)+25]);
   
   partSeven = "Output of signal and convolution of input signal and h[n] ARE Equal";
   for i = 1:length(n)
