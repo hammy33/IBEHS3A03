@@ -79,10 +79,12 @@ respirationOutput = ltisystemB(n4, respirationInput);
 
 impulse = zeros(1,51);
 impulse(26) = 1;
-ECGconvolution = conv(ECGinput, impulseOutput);
-ECGconvolution = ECGconvolution([6:2005]);
-respirationConvolution = conv(respirationInput, impulseOutput);
-respirationConvolution = respirationConvolution([6:660006]);
+n6 = -25:25;
+impulseOutput1 = ltisystemB(n6, impulse);
+ECGconvolution = conv(ECGinput, impulseOutput1);
+ECGconvolution = ECGconvolution([26:2025]);
+respirationConvolution = conv(respirationInput, impulseOutput1);
+respirationConvolution = respirationConvolution([26:660026]);
 
 figure('Name', 'Part VII - ECG', 'NumberTitle', 'Off')
 subplot(2,1,1);
