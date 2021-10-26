@@ -42,7 +42,7 @@ stepPlot = stem(n, stepDiff), xlabel('n'), ylabel('y[n]'),title('System B Output
 n3 = 1:2000;
 ECGdata = load('ECG_assignment2.mat');
 ECGinput = cell2mat(struct2cell(ECGdata));
-ECGoutput = ltisystemC(n3, ECGinput);
+ECGoutput = ltisystemB(n3, ECGinput);
 
 figure('Name', 'Part V', 'NumberTitle', 'Off')
 subplot(2,1,1);
@@ -56,7 +56,7 @@ ECGoutputPlot = plot(n3, ECGoutput), xlabel('n'), ylabel('y[n]'),title('System B
 n4 = 1:660001;
 respirationData = load('respiration_assignment2.mat');
 respirationInput = cell2mat(struct2cell(respirationData));
-respirationOutput = ltisystemC(n4, respirationInput);
+respirationOutput = ltisystemB(n4, respirationInput);
 
 figure('Name', 'Part VI', 'NumberTitle', 'Off')
 subplot(2,1,1);
