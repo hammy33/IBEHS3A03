@@ -1,0 +1,9 @@
+load('BFVdata_assignment3.mat');
+
+[mBFV1, phBFV1, fBFV1] = fourier_dt(BFVdu, Fs, 'half');
+[mBFV2, phBFV2, fBFV2] = fourier_dt(BFVdu(1:5), Fs, 'half');
+
+figure
+plot(fBFV1, mBFV1)
+figure
+plot(fBFV2, mBFV2)
