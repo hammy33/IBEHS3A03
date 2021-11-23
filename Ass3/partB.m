@@ -5,16 +5,32 @@ load ('EEGdata_assignment3.mat');
 [MEEG1,phEEG1,fEEG1] = fourier_dt(EEG1,Fs,'full');
 [MEEG2,phEEG2,fEEG2] = fourier_dt(EEG2,Fs,'full');
 
+[MEEG1a,phEEG1a,fEEG1a] = fourier_dt(EEG1,Fs,'half');
+[MEEG2a,phEEG2a,fEEG2a] = fourier_dt(EEG2,Fs,'half');
+
 % plot the magnitude spectra of the two EEG signals
 figure
-subplot(2,1,1)
+subplot(2,2,1)
 plot(fEEG1,MEEG1)
+xlim([-200 200])
 ylabel('|X(f)| (mV)')
-title('EEG1')
-subplot(2,1,2)
+title('Two-Sided Spectra for EEG1')
+subplot(2,2,2)
 plot(fEEG2,MEEG2)
+xlim([-200 200])
 ylabel('|X(f)| (mV)')
-title('EEG2')
+title('Two-Sided Spectra for EEG2')
+xlabel('f (Hz)')
+subplot(2,2,3)
+plot(fEEG1a,MEEG1a)
+xlim([0 200])
+ylabel('|X(f)| (mV)')
+title('One-Sided Spectra for EEG1')
+subplot(2,2,4)
+plot(fEEG2a,MEEG2a)
+xlim([0 200])
+ylabel('|X(f)| (mV)')
+title('One-Sided Spectra for EEG2')
 xlabel('f (Hz)')
 
 %Question 2
@@ -95,30 +111,34 @@ rangeGamma2r2 = find(indexGamma2r2);
 bandPowerGamma2 = sum(MEEG2(rangeGamma2r1).^2) + sum(MEEG2(rangeGamma2r2).^2);
 bandwidthGamma2 = 150;
 
+%Power and Normalized Power calculation
 powerEEG1 = [bandPowerDelta1, bandPowerTheta1, bandPowerAlpha1, bandPowerBeta1, bandPowerGamma1];
 normalizedPowerEEG1 = [bandPowerDelta1/bandwidthDelta1, bandPowerTheta1/bandwidthTheta1, bandPowerAlpha1/bandwidthAlpha1, bandPowerBeta1/bandwidthBeta1, bandPowerGamma1/bandwidthGamma1];
 
 powerEEG2 = [bandPowerDelta2, bandPowerTheta2, bandPowerAlpha2, bandPowerBeta2, bandPowerGamma2];
 normalizedPowerEEG2 = [bandPowerDelta2/bandwidthDelta2, bandPowerTheta2/bandwidthTheta2, bandPowerAlpha2/bandwidthAlpha2, bandPowerBeta2/bandwidthBeta2, bandPowerGamma2/bandwidthGamma2];
 
+%Plotting Band Power and Normalized Power across different Frequency Bands
 figure,
+b = categorical ({'Delta', 'Theta', 'Alpha', 'Beta', 'Gamma'});
+bands = reordercats(b, {'Delta', 'Theta', 'Alpha', 'Beta', 'Gamma'});
 subplot(2,2,1)
-bar(powerEEG1)
+bar(bands,powerEEG1)
 xlabel("Frequency Bands")
-ylabel("power")
+ylabel("Power (\muV^2)")
 title("EEG1 Band Powers")
 subplot(2,2,2)
-bar(normalizedPowerEEG1)
+bar(bands,normalizedPowerEEG1)
 xlabel("Frequency Bands")
-ylabel("Normalized Power")
+ylabel("Normalized Power (\muV^2)")
 title("EEG1 Normalized Band Powers")
 subplot(2,2,3)
-bar(powerEEG2)
+bar(bands,powerEEG2)
 xlabel("Frequency Bands")
-ylabel("Power")
+ylabel("Power (\muV^2)")
 title("EEG2 Band Powers")
 subplot(2,2,4)
-bar(normalizedPowerEEG2)
+bar(bands,normalizedPowerEEG2)
 xlabel("Frequency Bands")
-ylabel("Normalized Power")
+ylabel("Normalized Power (\muV^2)")
 title("EEG2 Normalized Band Powers")
