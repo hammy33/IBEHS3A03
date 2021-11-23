@@ -9,8 +9,7 @@ winlenEEG = 1717;
 overlapBFV = 5;
 overlapEEG = 28;
 
-nfftBFV = 1028;
-nfftEEG = 
+nfftBFV = 
 
 figure('Name', 'Spectrogram of BFVdu', 'NumberTitle', 'off');
 spectrogram(BFVdu, 'yaxis')
