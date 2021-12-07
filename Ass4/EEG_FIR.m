@@ -5,6 +5,7 @@ n = 0:(length(EEGa4)-1);
 t = n/Fs;
 figure
 plot(t,EEGa4)
+title('EEG Input Time-Domain Signal');
 
 %Magnitude and Phase spectra of the Input Waveform
 [M,ph,f] = fourier_dt(EEGa4,Fs,'half');
@@ -23,6 +24,7 @@ xlabel('f (Hz)');
 y = filter(Hd_EEG_FIR,EEGa4);
 figure
 plot(t,y)
+title('EEG Input and EEG FIR Filter Output Time-Domain Signal Comparison');
 hold on
 plot(t,EEGa4)
 shg
@@ -33,6 +35,7 @@ figure('Name', 'Magnitude and Phase Spectra of EEG Input and FIR Filter Output C
 subplot(2,1,1);
 plot(f, M)
 ylabel('|X(f)| (mV)');
+xlim([45 75])
 title('Magnitude Spectra of EEG Input and FIR Filter Output Comparison');
 hold on
 plot(fy,My)
