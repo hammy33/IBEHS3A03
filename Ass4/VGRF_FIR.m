@@ -34,6 +34,13 @@ hold on
 plot(t,y)
 shg
 
+figure
+plot(t,VGRF)
+title('VGRF Input and Shifted VGRF FIR Filter Output Time-Domain Signal Comparison');
+hold on
+plot(t,y+1000)
+shg
+
 %Magnitude and Phase spectra of Output Waveform
 [My,phy,fy] = fourier_dt(y,Fs,'half');
 figure('Name', 'Magnitude and Phase Spectra of VGRF Input and FIR Filter Output Comparison', 'NumberTitle', 'off');
