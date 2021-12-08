@@ -1,5 +1,5 @@
 load('VGRFdata_assignment4.mat');
-% load('VGRF_FIR.mat');
+% load('VGRF_IIR.mat');
 
 %Input Time-Domain Waveform Plot
 n = 0:(length(VGRF)-1);
@@ -26,36 +26,29 @@ title('Phase Spectra of VGRF Input');
 xlabel('f (Hz)');
 
 %Output Time-Domain with Filter against Input Time-Domain
-y = filter(Hd_VGRF_FIR,VGRF);
+y = filter(Hd_VGRF_IIR,VGRF);
 figure
 plot(t,VGRF)
-title('VGRF Input and VGRF FIR Filter Output Time-Domain Signal Comparison');
+title('VGRF Input and VGRF IIR Filter Output Time-Domain Signal Comparison');
 hold on
 plot(t,y)
 shg
 
-figure
-plot(t,VGRF)
-title('VGRF Input and Shifted VGRF FIR Filter Output Time-Domain Signal Comparison');
-hold on
-plot(t,y+1000)
-shg
-
 %Magnitude and Phase spectra of Output Waveform
 [My,phy,fy] = fourier_dt(y,Fs,'half');
-figure('Name', 'Magnitude and Phase Spectra of VGRF Input and FIR Filter Output Comparison', 'NumberTitle', 'off');
+figure('Name', 'Magnitude and Phase Spectra of VGRF Input and IIR Filter Output Comparison', 'NumberTitle', 'off');
 subplot(2,1,1);
 plot(f, M)
 ylabel('|X(f)| (mV)');
 ylim([0 30]);
-title('Magnitude Spectra of VGRF Input and FIR Filter Output Comparison');
+title('Magnitude Spectra of VGRF Input and IIR Filter Output Comparison');
 hold on
 plot(fy,My)
 shg
 subplot(2,1,2);
 plot(f,ph)
 ylabel('\angleX(f)');
-title('Phase Spectra of VGRF Input and FIR Filter Output Comparison');
+title('Phase Spectra of VGRF Input and IIR Filter Output Comparison');
 xlabel('f (Hz)');
 hold on
 plot(fy,phy)
