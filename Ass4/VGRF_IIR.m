@@ -1,5 +1,5 @@
 load('VGRFdata_assignment4.mat');
-% load('VGRF_IIR.mat');
+load('hd_VGRF_IIR.mat');
 
 %Input Time-Domain Waveform Plot
 n = 0:(length(VGRF)-1);
