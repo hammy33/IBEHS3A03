@@ -18,14 +18,12 @@ title('VGRF Input Time-Domain Signal');
 figure('Name', 'Magnitude and Phase Spectra of VGRF Input', 'NumberTitle', 'off');
 subplot(2,1,1);
 plot(f, M)
-xlim([0 30]);
 ylim([0 30]);
 ylabel('|X(f)| (mV)');
 title('Magnitude Spectra of VGRF Input');
 subplot(2,1,2);
 plot(f,ph)
 ylabel('\angleX(f)')
-xlim([0 30]);
 title('Phase Spectra of VGRF Input');
 xlabel('f (Hz)');
 
@@ -56,7 +54,6 @@ figure('Name', 'Magnitude and Phase Spectra of VGRF Input and FIR Filter Output 
 subplot(2,1,1);
 plot(f, M)
 ylabel('|X(f)| (mV)');
-xlim([0 30]);
 ylim([0 30]);
 title('Magnitude Spectra of VGRF Input and FIR Filter Output Comparison');
 hold on
@@ -65,7 +62,6 @@ shg
 subplot(2,1,2);
 plot(f,ph)
 ylabel('\angleX(f)');
-xlim([0 30]);
 title('Phase Spectra of VGRF Input and FIR Filter Output Comparison');
 xlabel('f (Hz)');
 hold on
